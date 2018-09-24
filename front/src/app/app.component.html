@@ -1,0 +1,96 @@
+<!--<button mat-button [matMenuTriggerFor]="simpleMenu">Menu Ejemplo</button>
+
+<mat-menu #simpleMenu="matMenu">
+  <button mat-menu-item *ngFor="let menuItem of menuData" [matMenuTriggerFor]="menuItem.label">
+    <mat-icon class="fa" [ngClass]="menuItem.icon" aria-hidden="true"></mat-icon>
+    {{menuItem.label}}
+  </button>
+</mat-menu>
+
+<mat-menu #Home="matMenu">
+  <button mat-menu-item>Birds</button>
+  <button mat-menu-item>Mammals</button>
+</mat-menu>
+
+<mat-menu #Tools="matMenu">
+  <button mat-menu-item>Birds</button>
+  <button mat-menu-item>Mammals</button>
+</mat-menu>-->
+
+<div>
+  <ul>
+    <li *ngFor="let menuItem of menuData">
+      <span>
+        <button mat-button>
+          <mat-icon class="fa" [ngClass]="menuItem.icon" aria-hidden="true" (click)="toggleMenu(menuItem)"></mat-icon>
+          {{menuItem.label}}
+        </button>
+
+      </span>
+      <ul *ngIf="menuItem.children.length > 0">
+        <li *ngFor="let subMenu of menuItem.children" [hidden]="!menuItem.show">
+          <button mat-button>
+            <mat-icon class="fa" [ngClass]="subMenu.icon" aria-hidden="true" ></mat-icon>
+            {{subMenu.label}}
+          </button>
+        </li>
+      </ul>
+      <!--<ul></ul>-->
+    </li>
+  </ul>
+</div>
+
+<!--<mat-menu #invertebrates="matMenu">
+  <button mat-menu-item>Insects</button>
+  <button mat-menu-item>Molluscs</button>
+  <button mat-menu-item>Crustaceans</button>
+  <button mat-menu-item>Corals</button>
+  <button mat-menu-item>Arachnids</button>
+  <button mat-menu-item>Velvet worms</button>
+  <button mat-menu-item>Horseshoe crabs</button>
+</mat-menu>
+
+<mat-menu #fish="matMenu">
+  <button mat-menu-item>Baikal oilfish</button>
+  <button mat-menu-item>Bala shark</button>
+  <button mat-menu-item>Ballan wrasse</button>
+  <button mat-menu-item>Bamboo shark</button>
+  <button mat-menu-item>Banded killifish</button>
+</mat-menu>
+
+<mat-menu #amphibians="matMenu">
+  <button mat-menu-item>Sonoran desert toad</button>
+  <button mat-menu-item>Western toad</button>
+  <button mat-menu-item>Arroyo toad</button>
+  <button mat-menu-item>Yosemite toad</button>
+</mat-menu>
+
+<mat-menu #reptiles="matMenu">
+  <button mat-menu-item>Banded Day Gecko</button>
+  <button mat-menu-item>Banded Gila Monster</button>
+  <button mat-menu-item>Black Tree Monitor</button>
+  <button mat-menu-item>Blue Spiny Lizard</button>
+  <button mat-menu-item disabled>Velociraptor</button>
+</mat-menu>-->
+
+
+<div>
+  <ul role="menubar">
+    <li *ngFor="let link of menu; let i = index;">
+
+      <a [attr.href]="link.href ? link.href : null" [attr.target]="link.target ? link.target : null" aria-role="menuitem"
+        [attr.ariaExpanded]="link.navigationItems && openElements[i] ? true : null" [attr.ariaHasPopup]="link.navigationItems ? true : null"
+        (click)="link.navigationItems ? openElements[i] = !openElements[i] : null" [class]="openElements[i] ? 'open' : null">
+        {{link.title}}
+      </a>
+
+      <ul *ngIf="link.navigationItems" role="menu">
+        <li *ngFor="let link of link.navigationItems">
+          <a [attr.href]="link.url" [innerHTML]="link.title" [attr.target]="link.target ? link.target : null" role="menuitem">
+          </a>
+        </li>
+      </ul>
+
+    </li>
+  </ul>
+</div>

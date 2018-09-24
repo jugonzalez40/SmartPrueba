@@ -1,0 +1,29 @@
+{
+  "menu": [{
+    "label": "Home",
+    "icon": "fa-plus",
+    "url": "/",
+    "children": [{
+      "label": "page 1",
+      "icon": "fa-plus",
+      "url": "page1"
+    }]
+  }, {
+    "label": "Tools",
+    "url": "/",
+    "children": [{
+      "label": "page 1",
+      "icon": "fa-plus",
+
+      "url": "tools/page1"
+    }, {
+      "label": "page 2",
+      "icon": "fa-plus",
+      "url": "tools/page2"
+    }, {
+      "label": "page 3",
+      "icon": "fa-plus",
+      "url": "tools/page3"
+    }]
+  }]
+}
