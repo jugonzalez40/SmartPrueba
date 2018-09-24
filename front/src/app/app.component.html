@@ -72,25 +72,3 @@
   <button mat-menu-item>Blue Spiny Lizard</button>
   <button mat-menu-item disabled>Velociraptor</button>
 </mat-menu>-->
-
-
-<div>
-  <ul role="menubar">
-    <li *ngFor="let link of menu; let i = index;">
-
-      <a [attr.href]="link.href ? link.href : null" [attr.target]="link.target ? link.target : null" aria-role="menuitem"
-        [attr.ariaExpanded]="link.navigationItems && openElements[i] ? true : null" [attr.ariaHasPopup]="link.navigationItems ? true : null"
-        (click)="link.navigationItems ? openElements[i] = !openElements[i] : null" [class]="openElements[i] ? 'open' : null">
-        {{link.title}}
-      </a>
-
-      <ul *ngIf="link.navigationItems" role="menu">
-        <li *ngFor="let link of link.navigationItems">
-          <a [attr.href]="link.url" [innerHTML]="link.title" [attr.target]="link.target ? link.target : null" role="menuitem">
-          </a>
-        </li>
-      </ul>
-
-    </li>
-  </ul>
-</div>
